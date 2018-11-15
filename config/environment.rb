@@ -1,5 +1,11 @@
-# Load the Rails application.
-require_relative 'application'
+const { environment } = require('@rails/webpacker')
 
-# Initialize the Rails application.
-Rails.application.initialize!
+// Bootstrap 3 has a dependency over jQuery:
+const webpack = require('webpack')
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery'
+  })
+)
+module.exports = environment
