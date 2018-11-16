@@ -1,6 +1,10 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all
+    @cocktails = if params[:name]
+      Cocktail.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      Cocktail.all
+    end
   end
 
   def show
@@ -14,7 +18,6 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -44,6 +47,10 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, doses_attributes: [:id, :description, :ingredient_id])
+  end
+
+  def doses_params
+    params.require(:cocktail).permit(:dose)
   end
 end

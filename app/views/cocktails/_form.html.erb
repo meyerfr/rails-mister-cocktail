@@ -1,0 +1,12 @@
+<%= simple_form_for(@cocktail) do |f| %>
+  <div>
+    <%= f.input :name, label: "Cocktail Name" %>
+    <div id="doses">
+      <%= f.simple_fields_for :doses do |dose| %>
+        <%= render 'dose_fields', f: dose %>
+      <% end %>
+      <%= link_to_add_association 'Add Dose', f, :doses %>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

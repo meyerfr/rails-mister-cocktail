@@ -1,13 +1,2 @@
-<h1>Add ingredients to the <%= @cocktail.name %> </h1>
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit value: "change cocktail-name"%>
-<% end %>
-
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit value: "Add an ingredient" %>
-<% end %>
-
-<%= link_to "Back to cocktail",  @cocktail %>
+<h1>Change your cocktails name, or add Ingredients below</h1>
+<%= render 'form' %>

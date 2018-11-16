@@ -2,8 +2,11 @@ class DosesController < ApplicationController
   def create
     dose = Dose.new(dose_params)
     dose.cocktail_id = params[:cocktail_id]
-    dose.save
-    redirect_to cocktail_path(params[:cocktail_id])
+    if dose.save
+      redirect_to cocktail_path(params[:cocktail_id])
+    else
+      render :new
+    end
   end
 
   def destroy
