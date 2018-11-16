@@ -1,12 +1,8 @@
 <%= render 'banner' %>
-<h1>List of cocktails</h1>
+<div class="container">
+  <div class="row">
+      <!-- insert <div class="card"> -->
+      <%= render @cocktails %>
+  </div>
+</div>
 
-<% @cocktails.each do |cocktail| %>
-  <ul>
-    <li>
-      <%= link_to cocktail.name, cocktail %> <%= link_to "delete cocktail", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
-    </li>
-  </ul>
-<% end %>
-
-<%= link_to 'Add a new cocktail', new_cocktail_path %>

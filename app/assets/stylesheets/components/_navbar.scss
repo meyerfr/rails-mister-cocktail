@@ -20,6 +20,11 @@
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  transition: 0.5s all ease;
+  &:hover{
+    height: 60px;
+    width: 60px;
+  }
 }
 
 /* Right section */
@@ -39,6 +44,10 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+  transition: 0.5s all ease;
+  &:hover{
+    font-size: +15px;
+  }
 }
 .navbar-wagon-link:hover {
   color: #da552f;
