@@ -1,2 +1,9 @@
 <h1>Change your cocktails name, or add Ingredients below</h1>
 <%= render 'form' %>
+<div id="doses">
+  <%= simple_form_for :dose do |f| %>
+    <%= f.input :description %>
+    <%= f.input :ingredient_id, collection: Ingredient.all %>
+    <%= f.submit %>
+  <% end %>
+</div>

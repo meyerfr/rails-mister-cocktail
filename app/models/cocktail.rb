@@ -4,4 +4,5 @@ class Cocktail < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   accepts_nested_attributes_for :doses, reject_if: :all_blank, allow_destroy: true
   mount_uploader :photo, PhotoUploader
+  validates :photo, presence: true
 end

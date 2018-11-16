@@ -3,12 +3,6 @@
     <%= f.input :name, label: "Cocktail Name" %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-    <div id="doses">
-      <%= f.simple_fields_for :doses do |dose| %>
-        <%= render 'dose_fields', f: dose %>
-      <% end %>
-      <%= link_to_add_association 'Add Dose', f, :doses %>
-      <%= f.submit %>
-    </div>
+    <%= f.submit %>
   </div>
 <% end %>

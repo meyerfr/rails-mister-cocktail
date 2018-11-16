@@ -27,7 +27,7 @@ class CocktailsController < ApplicationController
 
   def edit
     @cocktail = Cocktail.find(params[:id])
-    @dose = Dose.new
+    @dose = Dose.new(cocktail_id: @cocktail.id)
   end
 
   def update
@@ -47,10 +47,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :photo, doses_attributes: [:id, :description, :ingredient_id])
-  end
-
-  def doses_params
-    params.require(:cocktail).permit(:dose)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
